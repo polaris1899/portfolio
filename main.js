@@ -1,7 +1,6 @@
 'use strict';
 
-const menu = document.querySelector('.navbar__menu');
-const menuItem = document.querySelector('.navbar__menu__item');
+
 const toogleBtn = document.querySelector('.navbar__toogle-btn');
 
 // Make navbar transparent when it is on the top
@@ -17,9 +16,27 @@ document.addEventListener('scroll', () => {
   }
 });
 
+// Handle scrolling when tapping on the navbarw menu
+const navbarMenu = document.querySelector('.navbar__menu');
 
-menu.classList.toggle("active");
+navbarMenu.addEventListener('click',(event) => {
+  const target = event.target;
+  const link = event.target.dataset.link;
+  const scroll = document.querySelector(link);
+  const navbarOffset = 45;
+  const bodyRect = document.body.getBoundingClientRect().top;
+  const linkRect = scroll.getBoundingClientRect().top;
+  const scrollPosition = linkRect - bodyRect;
+  const offsetPosition = scrollPosition - navbarOffset;
 
-toogleBtn.addEventListener('click',() => {
-    menu.classList.toggle('active');
-});
+  if (link == null) {
+    return;
+  } 
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
+  });
+})
+
+
