@@ -4,8 +4,6 @@
     --color-white: #ffffff;
     --color-light-white: #eeeeee;
     --color-dark-white: #bdbdbd;
-    --color-pink: #fe918d;
-    --color-dark-pink: #ff6863;
     --color-bg-pink: #f15563;
     --color-black: #000000;
     --color-dark-grey: #4d4d4d;
@@ -97,13 +95,21 @@ header {
 
 /* Navbar */
 #navbar {
+    position: fixed;
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-bg-grey);
     align-items: center;
-    color: var(--color-white);
     padding: 16px;
     border-bottom: 2px solid var(--color-dark-white);
+    background-color: transparent;
+    transition: all var(--animation-duration) ease-in-out;
+}
+
+#navbar.navbar--dark {
+    background-color: var(--color-bg-grey);
+    padding: 8px;
 }
 
 .navbar__logo {
@@ -124,6 +130,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color: var(--color-white);
 }
 
 .navbar__menu__item {
@@ -154,6 +161,7 @@ header {
 #home {
     display: flex;
     padding: 50px 0 20px 20px;
+    padding-top: 150px;
 }
 
 .home__info {
@@ -490,6 +498,7 @@ header {
 @media screen and (max-width:758px) {
     .navbar__toogle-btn{
         display: block;
+        cursor: pointer;
     }
 
     #navbar{
@@ -504,7 +513,7 @@ header {
         width: 100%;
     }
 
-    /*  */
+    /*Home*/
     .home__avatar {
         display: none;
     }
@@ -547,3 +556,4 @@ header {
         width: 80px;
         height: 80px;
     }
+}
