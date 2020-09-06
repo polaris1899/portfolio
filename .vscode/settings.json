@@ -1,0 +1,19 @@
+{
+    "launch": {
+
+        "configurations": [],
+        "compounds": []
+    },
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        
+    },
+    "[html]": {
+
+        "editor.suggest.insertMode": "replace"
+    }
+}

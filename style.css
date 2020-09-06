@@ -141,28 +141,36 @@ header {
     background-color: var(--color-grey);
 }
 
+.navbar__toogle-btn {
+    position: absolute;
+    right: 15px;
+    top: 30px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
+}
+
 /* Home */
 #home {
-    background: url(/imgs/background2.png) center/cover no-repeat;
     display: flex;
-    padding: 50px 20px 20px 20px;
+    padding: 50px 0 20px 20px;
 }
 
 .home__info {
-    padding: 0 70px;
+    padding: 0 50px;
 }
 
 .home__title {
     color: var(--color-bg-pink);
-    font-size: 60px;
+    font-size: var(--font-large);
     font-weight: var(--weight-bold);
 }
 
 .home__description {
-    width: 70%;
     color: var(--color-white);
-    font-size: 40px;
+    font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
+    margin-right: 100px;
 }
 
 .home__contact {
@@ -174,14 +182,12 @@ header {
     font-size: var(--font-regular);
     font-weight: var(--weight-bold);
 }
-/* 
+
 .home__avatar {
     position: relative;
-    top:10px;
-    left: 30px;
     width: 400px;
-    height: 400px;
-} */
+    height: 350px;
+}
 
 
 /* Section Common */
@@ -417,10 +423,10 @@ header {
 .testimonials {
     margin: 40px;
 }
+
 .testimonial {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin: 32px 0;
 }
 
@@ -479,3 +485,65 @@ header {
     color: var(--color-bg-pink);
     transition: all var(--animation-duration) ease-in;
 }
+
+/* For below 768px screen width */
+@media screen and (max-width:758px) {
+    .navbar__toogle-btn{
+        display: block;
+    }
+
+    #navbar{
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .navbar__menu{
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    /*  */
+    .home__avatar {
+        display: none;
+    }
+
+    /* About */
+    .about__majors {
+        flex-direction: column;
+    }
+
+    .major {
+        margin-bottom: 38px;
+    }
+
+    /* Skills */
+    .skillset {
+        flex-direction: column;
+    }
+
+    /* Work */
+    .work__categories {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .category__btn{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-left: 60px;
+        width: 100%;
+        margin-bottom: 3px;
+    }
+
+    .project {
+        flex-grow : 1;
+    }
+
+    /* Testmonials */
+    .testimonial__avatar {
+        width: 80px;
+        height: 80px;
+    }
