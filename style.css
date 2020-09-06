@@ -164,6 +164,12 @@ header {
     padding-top: 150px;
 }
 
+.home--trasparent {
+    color: transparent;
+    transform: ;
+    opacity: 0;
+}
+
 .home__info {
     padding: 0 50px;
 }
