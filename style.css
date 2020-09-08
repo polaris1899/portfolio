@@ -97,6 +97,8 @@ header {
 #navbar {
     position: fixed;
     width: 100%;
+    left: 0;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -374,6 +376,13 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 1;
+    transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.anim-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -427,6 +436,10 @@ header {
     background-color: var(--color-dark-white);
 
 }
+
+.project.invisible {
+    display: none ;
+  }
 
 /* Testimonials */
 
@@ -498,6 +511,26 @@ header {
     transform: scale(1.1);
     color: var(--color-bg-pink);
     transition: all var(--animation-duration) ease-in;
+}
+
+/* return home */
+.return__home {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-bg-pink);
+    transition: all var(--animation-duration) ease-in-out;
+    display: none;
+}
+
+.return__home i{
+    color: var(--color-white);
+    font-size: var(--font-large);
+    transform: translate(20%, 10%);
+    transition: all var(--animation-duration) ease-in-out;
 }
 
 /* For below 768px screen width */
