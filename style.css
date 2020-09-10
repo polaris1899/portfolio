@@ -120,6 +120,7 @@ header {
     font-size: var(--font-medium);
     font-weight: var(--weight-semi-bold);
 }
+
 .navbar__logo img {
     width: 60px;
 }
@@ -173,6 +174,7 @@ header {
 }
 
 .home__info {
+    width: 100%;
     padding: 0 50px;
 }
 
@@ -192,6 +194,7 @@ header {
 .home__contact {
     background: var(--color-bg-pink);
     border: var(--color-bg-pink) 1px solid;
+    border-radius: var(--size-border-radius);
     color: var(--color-white);
     margin: 100px 0 30px 0;
     padding: 10px 16px;
@@ -346,6 +349,7 @@ header {
     border-radius: var(--size-border-radius);
     padding: 10px 50px;
     font-size: var(--font-regular);
+    position: relative;
 }
 
 .category__btn.selected,
@@ -365,9 +369,10 @@ header {
     color: var(--color-white);
     border-radius: 50%;
     padding: 2px 7px;
-    position: relative;
-    top: -20px;
-    left: 4px;
+    display: inline-block;
+    position: absolute;
+    right: 16px;
+    margin-top: 7px;
     opacity: 0;
     transition: all var(--animation-duration) ease-in;
 }
@@ -536,9 +541,21 @@ header {
 
 /* For below 768px screen width */
 @media screen and (max-width:758px) {
+    :root {
+            /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+    }
+
     .navbar__toogle-btn{
         display: block;
         cursor: pointer;
+        top: 23px;
+        right: 16px;
+        font-size: var(--font-medium);
     }
 
     #navbar.navbar--dark {
@@ -552,6 +569,10 @@ header {
         border-bottom: none;
     }
 
+    .navbar__logo img {
+        width: 40px;
+    }
+
     .navbar__menu{
         display: none;
         flex-direction: column;
@@ -563,18 +584,44 @@ header {
         display: block;
     }
 
+    .section {
+        padding: 16px;
+    }
+
     /*Home*/
+    #home {
+        padding-top: 80px;
+    }
+
+    .home__info {
+        padding: 10px;
+    }
+
     .home__avatar {
         display: none;
+    }
+
+    .home__contact {
+        padding: 7px 10px;
+        font-size: var(--font-micro);
+        font-weight: var(--weight-regular);
+        display: flex;
+        margin: auto;
+        margin-top: 50px;
+        margin-right: 10px;
+        
+
     }
 
     /* About */
     .about__majors {
         flex-direction: column;
+        margin-top: 30px;
+        margin-bottom: 0px;
     }
 
     .major {
-        margin-bottom: 38px;
+        margin-bottom: 30px;
     }
 
     /* Skills */
@@ -588,7 +635,7 @@ header {
         align-items: start;
     }
 
-    .category__btn{
+    .category__btn {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -597,13 +644,45 @@ header {
         margin-bottom: 3px;
     }
 
+    .category__count {
+        right: 100px;
+    }
+
     .project {
         flex-grow : 1;
     }
 
     /* Testmonials */
     .testimonial__avatar {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
     }
+
+    .testimonials {
+        margin: 10px;
+    }
+
+    .testimonial {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial__speech-bubble {
+        order: 1;
+    }
+
+    .testimonial__avatar:nth-child(odd),
+    .testimonial__avatar:nth-child(even) {
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    
+        /* Scroll */
+    .arrow-up {
+        bottom: 16px;
+        right: 16px;
+        font-size: 30px;
+        line-height: 50px;
+        width: 50px;
+        height: 50px;
 }
