@@ -16,7 +16,7 @@ document.addEventListener('scroll', () => {
   }
 });
 
-// Handle scrolling when tapping on the navbarw menu
+// Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 
 navbarMenu.addEventListener('click',(event) => {
@@ -32,11 +32,18 @@ navbarMenu.addEventListener('click',(event) => {
   if (link == null) {
     return;
   } 
+  navbarMenu.classList.remove('open');
 
   window.scrollTo({
     top: offsetPosition,
     behavior: 'smooth'
   });
+})
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toogle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 })
 
 // Handle click on "contact me" button on home
@@ -55,19 +62,20 @@ document.addEventListener('scroll', () => {
    home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
-// Make the arrow up icon when you scrolls down and click to the Scroll to Top 
+// Show "arrow up" botton when scrolling down
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add('visible');
+  } else {
+    arrowUp.classList.remove('visible');
+  }
+})
 const returnHome = document.querySelector('.return__home');
 
-document.addEventListener('scroll', () => {
-  const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  if (currentScroll >= 5) {
-    returnHome.style.display = "block";
-  } else {
-    returnHome.style.display = "none";
-  }
-});
-  
-returnHome.addEventListener('click',(event) => {
+
+// Handle click on the "aroow up" button
+arrowUp.addEventListener('click',(event) => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
@@ -83,6 +91,12 @@ workBtnContainer.addEventListener('click', (e) => {
     return;
   }
 
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+  const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+  target.classList.add('selected');
+
   projectContainer.classList.add('anim-out');
   setTimeout(() => {
     projects.forEach((project) => {
@@ -95,4 +109,3 @@ workBtnContainer.addEventListener('click', (e) => {
     projectContainer.classList.remove('anim-out');
   },300);
 });
-
