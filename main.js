@@ -19,7 +19,7 @@ document.addEventListener('scroll', () => {
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 
-navbarMenu.addEventListener('click',(event) => {
+navbarMenu.addEventListener('click', (event) => {
   const target = event.target;
   const link = event.target.dataset.link;
   const scroll = document.querySelector(link);
@@ -31,7 +31,7 @@ navbarMenu.addEventListener('click',(event) => {
 
   if (link == null) {
     return;
-  } 
+  }
   navbarMenu.classList.remove('open');
 
   window.scrollTo({
@@ -50,8 +50,8 @@ navbarToggleBtn.addEventListener('click', () => {
 const homeContactBtn = document.querySelector('.home__contact');
 const contact = document.querySelector('#contact');
 
-homeContactBtn.addEventListener('click',(event) => {
-  contact.scrollIntoView({behavior: 'smooth'});
+homeContactBtn.addEventListener('click', (event) => {
+  contact.scrollIntoView({ behavior: 'smooth' });
 })
 
 // Make "home" slowly fade to transparent as the window scrolls down
@@ -59,7 +59,7 @@ const home = document.querySelector('#home');
 const homeHeight = home.getBoundingClientRect().height;
 
 document.addEventListener('scroll', () => {
-   home.style.opacity = 1 - window.scrollY / homeHeight;
+  home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
 // Show "arrow up" botton when scrolling down
@@ -75,7 +75,7 @@ const returnHome = document.querySelector('.return__home');
 
 
 // Handle click on the "aroow up" button
-arrowUp.addEventListener('click',(event) => {
+arrowUp.addEventListener('click', (event) => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
@@ -87,7 +87,7 @@ const projects = document.querySelectorAll('.project');
 
 workBtnContainer.addEventListener('click', (e) => {
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
-  if(filter == null) {
+  if (filter == null) {
     return;
   }
 
@@ -100,12 +100,12 @@ workBtnContainer.addEventListener('click', (e) => {
   projectContainer.classList.add('anim-out');
   setTimeout(() => {
     projects.forEach((project) => {
-      if(filter === '*' || filter === project.dataset.type) {
+      if (filter === '*' || filter === project.dataset.type) {
         project.classList.remove('invisible');
       } else {
         project.classList.add('invisible');
       }
     });
     projectContainer.classList.remove('anim-out');
-  },300);
+  }, 300);
 });
